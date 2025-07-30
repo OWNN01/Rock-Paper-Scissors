@@ -63,7 +63,7 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    while ((humanScore < 5) || (computerScore < 5)) {
+    while ((humanScore < 5) && (computerScore < 5)) {
         let outcome = 0;
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
