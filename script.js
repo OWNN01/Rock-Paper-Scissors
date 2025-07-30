@@ -1,9 +1,4 @@
-
-
-let humanScore = 0;
-let computerScore = 0;
-
-
+//Function to get a random choice by converting math.random values into choices.
 function getComputerChoice() {
     let choiceValue = Math.random();
     let computerChoice = "";
@@ -19,9 +14,9 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-//console.log(getComputerChoice());
 
 
+// Function to prompt the user for a choice.
 function getHumanChoice() {
     let rightChoice = true;
     let humanChoice = '';
@@ -41,7 +36,9 @@ function getHumanChoice() {
 
 
 
-
+// Function to play one round and return a numerical output representing who won.
+// 1 for the human, 2 for the computer, and nothing for a tie.
+// There are 3 win cases, 1 tie case, and one loss case for the user.
 function playRound(humanChoice, computerChoice) {
 
     if ((humanChoice === "Rock") && (computerChoice === "Scissors")) {
@@ -59,6 +56,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
+
+// Function to play through the game of Rock Paper Scissors by keeping score up to 5. 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -86,5 +85,6 @@ function playGame() {
     }
 
 }
+
 
 playGame();
