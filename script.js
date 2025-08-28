@@ -42,15 +42,15 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
 
     if ((humanChoice === "Rock") && (computerChoice === "Scissors")) {
-        return 1;
+        return "Human Wins";
     } else if ((humanChoice === "Paper") && (computerChoice === "Rock")) {
-        return 1;
+        return "Human Wins";
     } else if ((humanChoice === "Scissors") && (computerChoice === "Paper")) {
-        return 1;
+        return "Human Wins";
     } else if (humanChoice === computerChoice) {
-        console.log("Tie!")
+        return "Tie!";
     } else {
-        return 2;
+        return "Computer Wins";
     }
 
 }
@@ -62,7 +62,8 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    while ((humanScore < 5) && (computerScore < 5)) {
+
+    while ((humanScore < 1) && (computerScore < 1)) {
         let outcome = 0;
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
@@ -84,7 +85,24 @@ function playGame() {
         console.log("Computer wins!");
     }
 
+
 }
 
 
-playGame();
+//playGame();
+
+const btnRock = document.querySelector(".Rock");
+const btnPaper = document.querySelector(".Paper");
+const btnScissors = document.querySelector(".Scissors");
+
+btnRock.addEventListener("click", (e) => {
+    console.log(playRound(e.target.innerText, getComputerChoice()));
+})
+
+btnPaper.addEventListener("click", (e) => {
+    console.log(playRound(e.target.innerText, getComputerChoice()));
+})
+
+btnScissors.addEventListener("click", (e) => {
+    console.log(playRound(e.target.innerText, getComputerChoice()));
+})
