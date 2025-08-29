@@ -39,51 +39,6 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
-// Get button DOM elements.
-
-const btnRock = document.querySelector(".Rock");
-const btnPaper = document.querySelector(".Paper");
-const btnScissors = document.querySelector(".Scissors");
-
-// Add the button event listeners.
-
-btnRock.addEventListener("click", (e) => {
-    let humanChoice = e.target.innerText;
-    let computerChoice = getComputerChoice();
-    let outcome = playRound(e.target.innerText, computerChoice);
-    updateScore(outcome, humanChoice, computerChoice);
-});
-
-btnPaper.addEventListener("click", (e) => {
-    let humanChoice = e.target.innerText;
-    let computerChoice = getComputerChoice();
-    let outcome = playRound(e.target.innerText, computerChoice);
-    updateScore(outcome, humanChoice, computerChoice);
-});
-
-btnScissors.addEventListener("click", (e) => {
-    let humanChoice = e.target.innerText;
-    let computerChoice = getComputerChoice();
-    let outcome = playRound(e.target.innerText, computerChoice);
-    updateScore(outcome, humanChoice, computerChoice);
-});
-
-// Set the dynamic score DOM elements.
-
-const score = document.querySelector(".Score");
-const humanScore = document.createElement("p");
-humanScore.classList.add("humanScore");
-humanScore.textContent = "I'm the human score: " + hScore;
-humanScore.style.cssText = "Color: blue;"
-
-const computerScore = document.createElement("p");
-computerScore.classList.add("computerScore");
-computerScore.textContent = "I'm the computer score: " + cScore;
-computerScore.style.cssText = "Color: red;"
-
-const roundOutcome = document.createElement("p");
-roundOutcome.classList.add("roundOutcome");
-
 // Update the score and report the outcome of the round.
 
 function updateScore(outcome, humanChoice, computerChoice) {
@@ -120,6 +75,40 @@ function updateScore(outcome, humanChoice, computerChoice) {
     computerScore.textContent = "I'm the computer score: " + cScore;
 
 }
+
+// Get button DOM elements.
+
+let btns = document.querySelectorAll("button");
+
+// Add in the event listeners.
+
+btns.forEach((e) => {
+    e.addEventListener("click", (e) => {
+        let humanChoice = e.target.innerText;
+        let computerChoice = getComputerChoice();
+        let outcome = playRound(e.target.innerText, computerChoice);
+        updateScore(outcome, humanChoice, computerChoice);
+    });
+});
+
+// Set the dynamic score DOM elements.
+
+const score = document.querySelector(".Score");
+
+const humanScore = document.createElement("p");
+humanScore.classList.add("humanScore");
+humanScore.textContent = "I'm the human score: " + hScore;
+humanScore.style.cssText = "Color: blue;"
+
+const computerScore = document.createElement("p");
+computerScore.classList.add("computerScore");
+computerScore.textContent = "I'm the computer score: " + cScore;
+computerScore.style.cssText = "Color: red;"
+
+const roundOutcome = document.createElement("p");
+roundOutcome.classList.add("roundOutcome");
+
+
 
 
 
